@@ -29,8 +29,12 @@ function py(x) {
 }
 
 // min % of width and height for non 1:1 aspect ratio sketches
-function p(x) {
-  return min(px(x), py(x));
+function p(x, mode = 0) {
+  if (mode == 0) {
+    return min(px(x), py(x));
+  } else {
+    return max(px(x), py(x));
+  }
 }
 
 // Change the coordinate system to graph based, starting at center, positive to top right, negative to bottom left
