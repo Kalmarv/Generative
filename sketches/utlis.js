@@ -135,3 +135,14 @@ function ngon(p, s) {
 function cryptoRandom() {
   return window.crypto.getRandomValues(new Uint32Array(1))[0];
 }
+
+function urlSeed(params) {
+  if (params.seed != null) {
+    seeed = params.seed;
+    console.log(params.seed);
+  } else {
+    seeed = cryptoRandom();
+    console.log("No seed provided, using:");
+    console.log(seeed);
+  }
+}

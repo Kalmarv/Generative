@@ -2,25 +2,12 @@ let a1;
 let a2;
 let a3;
 let a4;
-let range;
 let x = 1;
 let y = 1;
 
 function setup() {
   let params = getURLParams();
-  if (params.seed != null) {
-    randomSeed(params.seed);
-    console.log(params.seed);
-  } else {
-    randomSeed((seeed = cryptoRandom()));
-    console.log("No seed provided, using: \n" + seeed);
-  }
-
-  range = TAU;
-  a1 = random(-range, range);
-  a2 = random(-range, range);
-  a3 = random(-range, range);
-  a4 = random(-range, range);
+  urlSeed(params);
 
   blendMode(HARD_LIGHT);
   background(0);
@@ -28,9 +15,20 @@ function setup() {
 }
 
 function draw() {
+  randomSeed(seeed);
+  a1 = random(-TAU, TAU);
+  a2 = random(-TAU, TAU);
+  a3 = random(-TAU, TAU);
+  a4 = random(-TAU, TAU);
+
   if (frameCount < 2) {
     background(0);
   }
+
+  if (frameCount > 100) {
+    noLoop();
+  }
+
   strokeWeight(px(0.1));
   for (i = 0; i < 1; i += random(0, 0.0005)) {
     var oldx = x;
