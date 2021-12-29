@@ -5,13 +5,13 @@ function setup() {
 }
 
 function draw() {
-  s = px(10);
+  s = p(10);
   gridx = width / s;
   gridy = height / s;
   randomSeed(seeed);
   background(0);
   stroke(255);
-  strokeWeight(px(0.5));
+  strokeWeight(p(0.5));
   noFill();
   drawSomething();
 }

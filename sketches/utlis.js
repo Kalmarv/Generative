@@ -28,6 +28,11 @@ function py(x) {
   return (height / 100) * x;
 }
 
+// min % of width and height for non 1:1 aspect ratio sketches
+function p(x) {
+  return min(px(x), py(x));
+}
+
 // Change the coordinate system to graph based, starting at center, positive to top right, negative to bottom left
 function graphCoords() {
   translate(width / 2, height / 2);
