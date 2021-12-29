@@ -25,7 +25,7 @@ function draw() {
     background(0);
   }
 
-  if (frameCount > 100) {
+  if (frameCount > 150) {
     noLoop();
   }
 

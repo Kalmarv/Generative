@@ -132,17 +132,19 @@ function ngon(p, s) {
   endShape(CLOSE);
 }
 
+// for generating random seeds outside p5.js functions
 function cryptoRandom() {
   return window.crypto.getRandomValues(new Uint32Array(1))[0];
 }
 
+// helper for urlseed functionality
 function urlSeed(params) {
   if (params.seed != null) {
     seeed = params.seed;
-    console.log(params.seed);
+    console.log("URL seed used: " + params.seed);
   } else {
     seeed = cryptoRandom();
-    console.log("No seed provided, using:");
-    console.log(seeed);
+    console.log("No seed provided, append this to the url to recreate:");
+    console.log("?seed=" + seeed);
   }
 }
