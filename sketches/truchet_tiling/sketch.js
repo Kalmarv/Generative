@@ -1,10 +1,13 @@
 function setup() {
+  let params = getURLParams();
+  urlSeed(params);
+
   ARCanvas(1, 1);
   angleMode(DEGREES);
-  seeed = random(100000000000000);
 }
 
 function draw() {
+  randomSeed(seeed);
   s = p(10);
   gridx = width / s;
   gridy = height / s;

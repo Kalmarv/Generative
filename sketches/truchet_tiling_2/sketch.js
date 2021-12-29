@@ -1,11 +1,14 @@
 function setup() {
+  let params = getURLParams();
+  urlSeed(params);
+
   createCanvas((w = 900), (h = 900));
   angleMode(DEGREES);
   colorMode(HSB);
-  seeed = random(10000000000000);
 }
 
 function draw() {
+  randomSeed(seeed);
   s = px(10);
   gridx = w / s;
   gridy = h / s;
