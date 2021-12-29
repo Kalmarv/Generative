@@ -1,5 +1,5 @@
 function setup() {
-  squareCanvas();
+  ARCanvas(1, 1);
   angleMode(DEGREES);
   seeed = random(100000000000000);
 }

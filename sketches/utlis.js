@@ -1,9 +1,21 @@
 // Always create square canvas, fitting to window
-function squareCanvas() {
+function squareCanvas(resMult = 1) {
   createCanvas(
-    (w = min(windowWidth, windowHeight)),
-    (h = min(windowWidth, windowHeight))
+    (w = min(windowWidth, windowHeight) * resMult),
+    (h = min(windowWidth, windowHeight) * resMult)
   );
+}
+
+function ARCanvas(xAspect, yAspect, resMult = 1) {
+  let canvasAspectRatio = xAspect / yAspect;
+  if (windowHeight * canvasAspectRatio > windowWidth) {
+    w = windowWidth * resMult;
+    h = floor((windowWidth / canvasAspectRatio) * resMult);
+  } else {
+    w = floor(windowHeight * canvasAspectRatio * resMult);
+    h = windowHeight * resMult;
+  }
+  createCanvas(w, h);
 }
 
 // percentage of height, for same scaling on different monitor sizes
@@ -14,12 +26,6 @@ function px(x) {
 // percentage of height, for same scaling on different monitor sizes
 function py(x) {
   return (height / 100) * x;
-}
-
-// Swaps to black background and white stroke
-function dark() {
-  background(0);
-  stroke(255);
 }
 
 // Change the coordinate system to graph based, starting at center, positive to top right, negative to bottom left
