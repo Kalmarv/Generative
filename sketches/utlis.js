@@ -131,3 +131,7 @@ function ngon(p, s) {
   }
   endShape(CLOSE);
 }
+
+function cryptoRandom() {
+  return window.crypto.getRandomValues(new Uint32Array(1))[0];
+}

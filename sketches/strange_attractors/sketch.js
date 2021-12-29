@@ -7,6 +7,15 @@ let x = 1;
 let y = 1;
 
 function setup() {
+  let params = getURLParams();
+  if (params.seed != null) {
+    randomSeed(params.seed);
+    console.log(params.seed);
+  } else {
+    randomSeed((seeed = cryptoRandom()));
+    console.log("No seed provided, using: \n" + seeed);
+  }
+
   range = TAU;
   a1 = random(-range, range);
   a2 = random(-range, range);
