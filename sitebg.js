@@ -1,5 +1,5 @@
 function setup() {
-  let cnv = createCanvas(windowWidth, windowHeight)
+  let cnv = createCanvas(windowWidth, windowHeight * 2)
   p5.DisableFriendlyErrors = true
   cnv.parent("bg-sketch")
   colorMode(HSB)
