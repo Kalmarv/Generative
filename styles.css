@@ -10,6 +10,10 @@ a:visited {
   color: gray;
 }
 
-.sketch_link {
+#main-container {
+  margin: 2em;
+}
+
+.sketch-link {
   font-weight: bold;
 }
