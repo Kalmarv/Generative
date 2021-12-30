@@ -1,5 +1,6 @@
 html {
   font-family: "Source Code Pro", monospace;
+  overflow: hidden;
 }
 
 a:link {
@@ -8,6 +9,13 @@ a:link {
 
 a:visited {
   color: gray;
+}
+
+#bg-sketch {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
 
 #main-container {
