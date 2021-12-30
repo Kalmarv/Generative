@@ -8,5 +8,5 @@ function setup() {
 
 function draw() {
   randomSeed(seeed)
-  background(frameCount % 255)
+  noiseSeed(seeed)
 }
