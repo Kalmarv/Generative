@@ -1,3 +1,6 @@
+// Doesn't support arbitrary resolutions :(
+// No I'm not gonna fix
+
 function setup() {
   let params = getURLParams();
   urlSeed(params);

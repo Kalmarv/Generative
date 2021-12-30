@@ -11,7 +11,6 @@ function draw() {
   s = p(10);
   gridx = width / s;
   gridy = height / s;
-  randomSeed(seeed);
   background(0);
   stroke(255);
   strokeWeight(p(0.5));

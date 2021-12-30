@@ -6,6 +6,8 @@ function squareCanvas(resMult = 1) {
   );
 }
 
+// Custom aspect ratio sketch, with resolution multiplier
+// for higher quality sketches to share/print
 function ARCanvas(xAspect, yAspect, resMult = 1) {
   let canvasAspectRatio = xAspect / yAspect;
   if (windowHeight * canvasAspectRatio > windowWidth) {
@@ -18,7 +20,7 @@ function ARCanvas(xAspect, yAspect, resMult = 1) {
   createCanvas(w, h);
 }
 
-// percentage of height, for same scaling on different monitor sizes
+// percentage of width, for same scaling on different monitor sizes
 function px(x) {
   return (width / 100) * x;
 }
@@ -28,7 +30,7 @@ function py(x) {
   return (height / 100) * x;
 }
 
-// min % of width and height for non 1:1 aspect ratio sketches
+// min or max % of width and height for non 1:1 aspect ratio sketches
 function p(x, mode = 0) {
   if (mode == 0) {
     return min(px(x), py(x));
@@ -37,13 +39,13 @@ function p(x, mode = 0) {
   }
 }
 
-// Change the coordinate system to graph based, starting at center, positive to top right, negative to bottom left
+// Change the coordinate system to cartesian
 function graphCoords() {
   translate(width / 2, height / 2);
   scale(1, -1);
 }
 
-// Random choice two, use ternary operator
+// return true based on probablity, use in ternary operator
 function prob(chance = 0.5) {
   if (random(1) > chance) {
     return false;
@@ -57,7 +59,8 @@ function speed() {
   p5.disableFriendlyErrors = true;
 }
 
-// Return an array of points in a grid layout. Margin option included
+// Return an array of points in a grid layout
+// Margin option included (but doesn't work all the time)
 function arrGrid(cellSize = 100, m = 100) {
   cs = cellSize;
   res = new Array([]);
@@ -112,16 +115,17 @@ function randscale(x, s) {
   return x * random(1 - s, 1 + s);
 }
 
-// scale range to 0 - 1
+// normalize range to 0 - 1
 function norm1(x, min, max) {
   return map(x, min, max, 0, 1);
 }
 
-// squish but -1 to 1
+// normalize range to -1 - 1
 function norm2(x, min, max) {
   return map(x, min, max, -1, 1);
 }
 
+// polygon that makes a circle with specified points and scale
 function ngon(p, s) {
   beginShape();
   for (let i = 0; i < p; i++) {
@@ -137,7 +141,8 @@ function cryptoRandom() {
   return window.crypto.getRandomValues(new Uint32Array(1))[0];
 }
 
-// helper for urlseed functionality
+// used to get ?seed=YOUR_SEED from url to share sketches with
+// predefined seed
 function urlSeed(params) {
   if (params.seed != null) {
     seeed = params.seed;
