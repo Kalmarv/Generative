@@ -8,7 +8,7 @@ function squareCanvas(resMult = 1) {
 
 // Custom aspect ratio sketch, with resolution multiplier
 // for higher quality sketches to share/print
-function ARCanvas(xAspect, yAspect, resMult = 1) {
+function ARCanvas(xAspect, yAspect, resMult = 1, mode = P2D) {
   let canvasAspectRatio = xAspect / yAspect
   if (windowHeight * canvasAspectRatio > windowWidth) {
     w = windowWidth * resMult
@@ -17,7 +17,7 @@ function ARCanvas(xAspect, yAspect, resMult = 1) {
     w = floor(windowHeight * canvasAspectRatio * resMult)
     h = windowHeight * resMult
   }
-  createCanvas(w, h)
+  createCanvas(w, h, mode)
 }
 
 // percentage of width, for same scaling on different monitor sizes
@@ -121,7 +121,7 @@ function norm1(x, min, max) {
 }
 
 // normalize range to -1 - 1
-function norm2(x, min, max) {
+function norm2(x, min = 0, max = 1) {
   return map(x, min, max, -1, 1)
 }
 
