@@ -1,17 +1,3 @@
-const p = {
-  mins: 0.5,
-  maxs: 2,
-  pillrmin: 2.5,
-  pillrmax: 2.5,
-  noisex: 20,
-  noisey: 20,
-  roundness: 10,
-  ramt: 3.141592 * 2,
-  pillscale: 2,
-  rotx: 50,
-  roty: 50,
-  iters: 10000,
-}
 const pane = new Tweakpane.Pane({
   title: "Parameters",
   expanded: false,
@@ -25,15 +11,30 @@ pane.on("change", (ev) => {
 function setup() {
   let params = getURLParams()
   urlSeed(params)
+  randomSeed(seeed)
+  noiseSeed(seeed)
   speed()
   ARCanvas(1, 1)
   noLoop()
   rectMode(CENTER)
   background(0)
   noStroke()
-  cols = createCols("https://coolors.co/efd9ce-dec0f1-b79ced-957fef-7161ef")
-  //cols = createCols("https://coolors.co/f1dac4-a69cac-474973-161b33-0d0c1d")
-  //cols = createCols("https://coolors.co/fe938c-e6b89c-ead2ac-9cafb7-4281a4")
+
+  p = {
+    mins: random(0, 7.5),
+    maxs: random(0, 7.5),
+    pillrmin: random(0, 7.5),
+    pillrmax: random(0, 7.5),
+    noisex: random(0, 100),
+    noisey: random(0, 100),
+    roundness: random(0, 10),
+    ramt: random(0, TAU),
+    pillscale: random(0, 5),
+    rotx: random(0, 100),
+    roty: random(0, 100),
+    iters: random(0, 10000),
+    cols: choose(randcols),
+  }
 
   pane.addInput(p, "mins", { min: 0, max: 10, label: "Minimum pill size" })
   pane.addInput(p, "maxs", { min: 0, max: 10, label: "Maximum pill size" })
@@ -52,10 +53,10 @@ function setup() {
   })
 
   randomizebtn.on("click", () => {
-    p.mins = random(0, 10)
-    p.maxs = random(0, 10)
-    p.pillrmin = random(0, 10)
-    p.pillrmax = random(0, 10)
+    p.mins = random(0, 7.5)
+    p.maxs = random(0, 7.5)
+    p.pillrmin = random(0, 7.5)
+    p.pillrmax = random(0, 7.5)
     p.noisex = random(0, 100)
     p.noisey = random(0, 100)
     p.roundness = random(0, 10)
@@ -64,6 +65,7 @@ function setup() {
     p.rotx = random(0, 100)
     p.roty = random(0, 100)
     p.iters = random(0, 10000)
+    p.cols = choose(randcols)
     clear()
     redraw()
     pane.refresh()
@@ -91,7 +93,7 @@ function flow2() {
     pillw = random(px(p.mins), px(p.maxs))
     pillh = pillw * random(p.pillrmin, p.pillrmax)
     push()
-    fill(choose(cols))
+    fill(choose(p.cols))
     translate((x = random(w)), (y = random(h)))
     pillsize =
       norm2(noise(x / px(p.noisex), y / px(p.noisey)), 0, 1) * p.pillscale
