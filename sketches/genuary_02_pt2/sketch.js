@@ -9,6 +9,8 @@ function setup() {
   speed()
   createCanvas((w = img.width * 4), (h = img.height * 4))
   noLoop()
+  noStroke()
+  noSmooth()
 
   bayer4x4 = [
     [0, 8, 2, 10],
@@ -19,8 +21,6 @@ function setup() {
 
   dark = 0
   light = 255
-  noStroke()
-  noSmooth()
 }
 
 function draw() {
