@@ -1,7 +1,12 @@
 html,
 body {
   font-family: "Source Code Pro", monospace;
-  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a:link {
@@ -13,7 +18,7 @@ a:visited {
 }
 
 #bg-sketch {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   z-index: -1;
