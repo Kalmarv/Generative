@@ -8,12 +8,12 @@ function setup() {
 
 function draw() {
   randomSeed(seeed)
-  s = p(10)
+  s = pxy(10)
   gridx = width / s
   gridy = height / s
   background(0)
   stroke(255)
-  strokeWeight(p(0.5))
+  strokeWeight(pxy(0.5))
   noFill()
   drawSomething()
 }

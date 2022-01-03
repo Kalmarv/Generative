@@ -31,7 +31,7 @@ function py(x) {
 }
 
 // min or max % of width and height for non 1:1 aspect ratio sketches
-function p(x, mode = 0) {
+function pxy(x, mode = 0) {
   if (mode == 0) {
     return min(px(x), py(x))
   } else {
