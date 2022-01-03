@@ -2,8 +2,13 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   background-color: rgb(30, 30, 30);
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 canvas {
