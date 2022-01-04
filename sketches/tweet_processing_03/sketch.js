@@ -1,0 +1,9 @@
+//#つぶやきProcessing 
+x=y=1
+setup=_=>{createCanvas(w=800,w);background(0)}
+draw=_=>{i=0;h=0.22;j=-4.8;k=j+h;l=5.3;m=map
+while(i<1){i+=1e-3;c=x;u=y
+x=sin(h*c)-sin(j*c)
+y=cos(k*c)-cos(k*c)*sin(l*u)
+point(m(x,f=-1.5,-f,0,w),m(y,f,-f,w/4,w*.75))
+stroke(d=m(c,f,-f,0,255),-d,w,40)}}
