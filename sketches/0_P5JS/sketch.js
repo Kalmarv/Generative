@@ -1,3 +1,5 @@
+/// <reference path="../../lib/p5.global-mode.d.ts" />
+
 function setup() {
   let params = getURLParams()
   urlSeed(params)
