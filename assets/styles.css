@@ -24,6 +24,10 @@ span {
   font-size: smaller;
 }
 
+.info {
+  max-width: 650px;
+}
+
 #bg-sketch {
   position: fixed;
   left: 0;
