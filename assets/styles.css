@@ -24,6 +24,13 @@ span {
   font-size: smaller;
 }
 
+.err {
+  margin: 0.1em;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 600;
+  color: red;
+}
+
 .info {
   max-width: 650px;
 }

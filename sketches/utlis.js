@@ -155,7 +155,7 @@ function urlSeed(params) {
 }
 
 // Stolen from https://github.com/inconvergent
-function prob(p, dofx, elsefx = null) {
+function probf(p, dofx, elsefx = null) {
   //execute dofx with a probability of p,
   //or elsefx with a probability of (1-p)
   if (random() < p) {

@@ -25,7 +25,7 @@ function draw() {
     a = pc(random(constrain(30 - frameCount / 10, 0, 30)))
     b = pc(random(constrain(30 - frameCount / 10, 0, 30)))
     random() > 0.5 ? box(a, b) : box(a, a * random(0.1, 0.4))
-    strokeWeight(min(a, b))
+    strokeWeight(px(min(a, b)))
     pop()
   }
 }

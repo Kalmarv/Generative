@@ -18,7 +18,10 @@ function draw() {
 
   for (i = 0; i < height; i += spacing) {
     for (j = 0; j < width; j += spacing) {
-      n = noise(i / 150, j / 150 + t)
+      n = noise(
+        map(i, 0, width, 0, 1000) / 150,
+        map(j, 0, width, 0, 1000) / 150 + t
+      )
       if (n > 0.5) {
         line(i, j, i + spacing, j + spacing)
       } else {

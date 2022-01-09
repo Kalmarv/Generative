@@ -11,6 +11,7 @@ function setup() {
   points = 3000
   r = px(25)
   stroke("#001d3d")
+  strokeWeight(px(0.5))
 }
 
 function draw() {
