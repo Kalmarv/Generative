@@ -153,3 +153,15 @@ function urlSeed(params) {
     console.log("?seed=" + seeed)
   }
 }
+
+// Stolen from https://github.com/inconvergent
+function prob(p, dofx, elsefx = null) {
+  //execute dofx with a probability of p,
+  //or elsefx with a probability of (1-p)
+  if (random() < p) {
+    return dofx()
+  } else if (elsefx !== null) {
+    return elsefx()
+  }
+  return null
+}
