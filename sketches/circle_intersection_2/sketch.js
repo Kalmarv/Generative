@@ -69,7 +69,7 @@ function circleIntersect(A, B) {
     P1 = P2 = null
   }
   try {
-    strokeWeight(10)
+    strokeWeight(px(2))
     point(P1.x, P1.y)
     point(P2.x, P2.y)
   } catch (err) {}
