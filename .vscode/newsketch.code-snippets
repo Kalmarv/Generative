@@ -15,17 +15,45 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "": {
-    "prefix": "newlink",
+  "Square Image Link": {
+    "prefix": "new",
     "body": [
       "<div class=\"image11\">",
       "  <a href=\"./sketches/${1:example}/index.html\"",
-      "        ><img",
-      "          class=\"image11\"",
-      "          src=\"https://raw.githubusercontent.com/CalebPfaff/Generative/master/assets/sketch_images/${1:example}.png\"",
+      "    ><img class=\"image11\" src=\"./assets/sketch_images/${1:example}.png\"",
       "  /></a>",
       "</div>"
     ],
-    "description": ""
+    "description": "Square Image Link"
+  },
+  "16:9 Image Link": {
+    "prefix": "new169",
+    "body": [
+      "<div class=\"image169\">",
+      "  <a href=\"./sketches/${1:example}/index.html\"",
+      "    ><img class=\"image169\" src=\"./assets/sketch_images/${1:example}.png\"",
+      "  /></a>",
+      "</div>"
+    ],
+    "description": "16:9 Image Link"
+  },
+  "p5.js Basic Grid function": {
+    "prefix": "basicGrid",
+    "body": [
+      "function basicGrid(rows, columns = rows) {",
+      "    cw = w / rows",
+      "    ch = h / columns",
+      "    for (let i = 0; i < w; i += cw) {",
+      "      for (let j = 0; j < h; j += ch) {",
+      "        if (i == 0 || j == 0 || i >= cw * rows - cw || j >= ch * columns - ch) {",
+      "          continue",
+      "        } else {",
+      "          ${1:example}",
+      "        }",
+      "      }",
+      "    }",
+      "  }"
+    ],
+    "description": "p5.js Basic Grid function"
   }
 }

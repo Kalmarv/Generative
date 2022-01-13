@@ -165,3 +165,35 @@ function probf(p, dofx, elsefx = null) {
   }
   return null
 }
+
+// Makes a bumpy line
+function lineVertex(x1, y1, x2, y2, points, noiseScale, bumpHeight, offset) {
+  dx = x2 - x1
+  dy = y2 - y1
+  rads = Math.atan2(dx, dy)
+  beginShape()
+  for (let i = 0; i < points; i++) {
+    x = map(i, 0, points - 1, x1, x2)
+    y = map(i, 0, points - 1, y1, y2)
+    x =
+      x +
+      map(
+        noise(i / noiseScale, offset),
+        0,
+        1,
+        -(cos(-rads) * bumpHeight),
+        cos(-rads) * bumpHeight
+      )
+    y =
+      y +
+      map(
+        noise(i / noiseScale, offset),
+        0,
+        1,
+        -(sin(-rads) * bumpHeight),
+        sin(-rads) * bumpHeight
+      )
+    vertex(x, y)
+  }
+  endShape()
+}
