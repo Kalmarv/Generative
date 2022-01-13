@@ -1,5 +1,3 @@
-/// <reference path="../../lib/p5.global-mode.d.ts" />
-
 let cells = []
 let cellCount = 200
 let xoff = 0.0

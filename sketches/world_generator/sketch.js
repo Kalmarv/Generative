@@ -1,5 +1,3 @@
-/// <reference path="../../lib/p5.global-mode.d.ts" />
-
 const p = {
   gap: Math.min(window.innerWidth, window.innerHeight) * 0.01,
   ol: 0.45,

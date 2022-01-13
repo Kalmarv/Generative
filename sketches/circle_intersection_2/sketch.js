@@ -1,5 +1,3 @@
-/// <reference path="../../lib/p5.global-mode.d.ts" />
-
 function setup() {
   speed()
   ARCanvas(1, 1)

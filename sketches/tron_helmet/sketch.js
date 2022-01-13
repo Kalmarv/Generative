@@ -1,5 +1,3 @@
-/// <reference path="../../lib/p5.global-mode.d.ts" />
-
 let a1
 let a2
 let a3

@@ -1,5 +1,3 @@
-/// <reference path="../../lib/p5.global-mode.d.ts" />
-
 const p = {
   TreeColor: "#FFFFFF",
   BackgroundColor: "#000000",

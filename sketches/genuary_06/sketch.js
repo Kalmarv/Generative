@@ -1,5 +1,3 @@
-/// <reference path="../../lib/p5.global-mode.d.ts" />
-
 var t
 const NUM_FRAMES = 250
 const NUM_SUBSAMPLES = 5

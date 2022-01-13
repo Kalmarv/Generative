@@ -1,5 +1,3 @@
-/// <reference path="../../lib/p5.global-mode.d.ts" />
-
 let xoff = 0.0
 let blobbies = []
 
