@@ -59,3 +59,13 @@ span {
   align-items: center;
   border-radius: 8px;
 }
+
+.image169 {
+  width: 888px;
+  height: 500px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
