@@ -51,8 +51,8 @@ span {
 }
 
 .image11 {
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   background-color: antiquewhite;
   display: flex;
   justify-content: center;
@@ -61,8 +61,18 @@ span {
 }
 
 .image169 {
-  width: 888px;
-  height: 500px;
+  width: 400px;
+  height: 225px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.imagedavid {
+  width: 400px;
+  height: 478px;
   background-color: antiquewhite;
   display: flex;
   justify-content: center;
