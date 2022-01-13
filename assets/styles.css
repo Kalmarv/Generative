@@ -49,3 +49,13 @@ span {
 .sketch-link {
   font-weight: bold;
 }
+
+.image11 {
+  width: 500px;
+  height: 500px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}

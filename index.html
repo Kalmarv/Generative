@@ -41,7 +41,9 @@
     <link rel="stylesheet" href="./assets/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <script src="./lib/p5.min.js"></script>
+    <script src="./lib/magic-grid.min.js"></script>
     <script src="./assets/sitebg.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
@@ -81,6 +83,14 @@
       <p class="info">
         Sketches are in chronological order, most recent on top
       </p>
+      <div class="container">
+        <div class="image11">
+          <a href="./sketches/quads/index.html"
+            ><img
+              src="https://raw.githubusercontent.com/CalebPfaff/Generative/master/assets/sketch_images/quads.png"
+          /></a>
+        </div>
+      </div>
       <ul>
         <li>
           <a href="./sketches/quads/index.html" class="sketch-link">Quads</a
@@ -489,5 +499,16 @@
         }
       </style>
     </div>
+    <script>
+      let magicGrid = new MagicGrid({
+        container: ".container",
+        animate: true,
+        gutter: 30,
+        static: true,
+        useMin: true,
+      })
+
+      magicGrid.listen()
+    </script>
   </body>
 </html>
