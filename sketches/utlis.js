@@ -1,9 +1,6 @@
 // Always create square canvas, fitting to window
 function squareCanvas(resMult = 1) {
-  createCanvas(
-    (w = min(windowWidth, windowHeight) * resMult),
-    (h = min(windowWidth, windowHeight) * resMult)
-  )
+  createCanvas((w = min(windowWidth, windowHeight) * resMult), (h = min(windowWidth, windowHeight) * resMult))
 }
 
 // Custom aspect ratio sketch, with resolution multiplier
@@ -64,16 +61,8 @@ function speed() {
 function arrGrid(cellSize = 100, m = 100) {
   cs = cellSize
   res = new Array([])
-  for (
-    var x = (width % cs) / 2 + m / 2;
-    x < width - m / 2 - (width % cs);
-    x += cs
-  ) {
-    for (
-      var y = (height % cs) / 2 + m / 2;
-      y < height - m / 2 - (height % cs);
-      y += cs
-    ) {
+  for (var x = (width % cs) / 2 + m / 2; x < width - m / 2 - (width % cs); x += cs) {
+    for (var y = (height % cs) / 2 + m / 2; y < height - m / 2 - (height % cs); y += cs) {
       res.push([x, y])
     }
   }
@@ -175,25 +164,14 @@ function lineVertex(x1, y1, x2, y2, points, noiseScale, bumpHeight, offset) {
   for (let i = 0; i < points; i++) {
     x = map(i, 0, points - 1, x1, x2)
     y = map(i, 0, points - 1, y1, y2)
-    x =
-      x +
-      map(
-        noise(i / noiseScale, offset),
-        0,
-        1,
-        -(cos(-rads) * bumpHeight),
-        cos(-rads) * bumpHeight
-      )
-    y =
-      y +
-      map(
-        noise(i / noiseScale, offset),
-        0,
-        1,
-        -(sin(-rads) * bumpHeight),
-        sin(-rads) * bumpHeight
-      )
+    x = x + map(noise(i / noiseScale, offset), 0, 1, -(cos(-rads) * bumpHeight), cos(-rads) * bumpHeight)
+    y = y + map(noise(i / noiseScale, offset), 0, 1, -(sin(-rads) * bumpHeight), sin(-rads) * bumpHeight)
     vertex(x, y)
   }
   endShape()
+}
+
+// LEGACY CODEBASE
+function expand(x) {
+  return (x - 0.5) * 2
 }
