@@ -33,8 +33,8 @@ function draw() {
   for (i = 0; i < 1; i += random(0, 0.0005)) {
     var oldx = x
     var oldy = y
-    x = sin(a1 * oldx) * cos(a1 * oldy) - sin(a2 * oldx)
-    y = cos(a3 * oldx) - cos(a3 * oldx) * sin(a4 * oldy)
+    x = Math.sin(a1 * oldx) * Math.cos(a1 * oldy) - Math.sin(a2 * oldx)
+    y = Math.cos(a3 * oldx) - Math.cos(a3 * oldx) * Math.sin(a4 * oldy)
     var scalex = map(x, -2, 2, px(10), px(90))
     var scaley = map(y, -2, 2, py(10), py(90))
     stroke(map(oldx, -2, 2, 0, 255), map(oldy, -2, 2, 0, 255), 255, 50)
