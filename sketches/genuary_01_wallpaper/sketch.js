@@ -13,18 +13,18 @@ function setup() {
 
 function draw() {
   p = {
-    mins: random(0, 7.5),
-    maxs: random(0, 7.5),
-    pillrmin: random(0, 7.5),
-    pillrmax: random(0, 7.5),
+    mins: random(0.5, 5),
+    maxs: random(0.5, 5),
+    pillrmin: random(0.5, 5),
+    pillrmax: random(0.5, 5),
     noisex: random(0, 100),
     noisey: random(0, 100),
-    roundness: random(0, 10),
+    roundness: random(0, 2),
     ramt: random(0, TAU),
     pillscale: random(0, 5),
     rotx: random(0, 100),
     roty: random(0, 100),
-    iters: random(0, 10000),
+    iters: random(1000, 5000),
     cols: choose(randcols),
   }
   background(0)
@@ -43,8 +43,7 @@ function flow2() {
     push()
     fill(choose(p.cols))
     translate((x = random(w)), (y = random(h)))
-    pillsize =
-      norm2(noise(x / px(p.noisex), y / px(p.noisey)), 0, 1) * p.pillscale
+    pillsize = norm2(noise(x / px(p.noisex), y / px(p.noisey)), 0, 1) * p.pillscale
     rotate(noise(x / px(p.rotx), y / px(p.roty)) * p.ramt)
     rect(0, 0, pillw * pillsize, pillh * pillsize, px(p.roundness))
     pop()
