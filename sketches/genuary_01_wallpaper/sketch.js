@@ -13,10 +13,10 @@ function setup() {
 
 function draw() {
   p = {
-    mins: random(0.5, 5),
-    maxs: random(0.5, 5),
-    pillrmin: random(0.5, 5),
-    pillrmax: random(0.5, 5),
+    mins: random(1, 5),
+    maxs: random(1, 5),
+    pillrmin: random(1, 5),
+    pillrmax: random(1, 5),
     noisex: random(0, 100),
     noisey: random(0, 100),
     roundness: random(0, 2),
@@ -24,7 +24,7 @@ function draw() {
     pillscale: random(0, 5),
     rotx: random(0, 100),
     roty: random(0, 100),
-    iters: random(1000, 5000),
+    iters: random(2000, 10000),
     cols: choose(randcols),
   }
   background(0)
@@ -34,9 +34,11 @@ function draw() {
   } else {
     frameRate(0.001)
   }
+  //print(hexToRbg(choose(p.cols)))
 }
 
 function flow2() {
+  background(hexToRbg(choose(p.cols)))
   for (let i = 0; i < p.iters; i++) {
     pillw = random(px(p.mins), px(p.maxs))
     pillh = pillw * random(p.pillrmin, p.pillrmax)
@@ -48,4 +50,10 @@ function flow2() {
     rect(0, 0, pillw * pillsize, pillh * pillsize, px(p.roundness))
     pop()
   }
+}
+
+// https://stackoverflow.com/a/5624139
+hexToRbg = (hex) => {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  return result ? [parseInt(result[1], 16), parseInt(result[2], 16), parseInt(result[3], 16)] : null
 }
