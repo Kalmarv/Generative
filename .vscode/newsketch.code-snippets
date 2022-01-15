@@ -37,23 +37,26 @@
     ],
     "description": "16:9 Image Link"
   },
-  "p5.js Basic Grid function": {
+  "Basic Grid": {
     "prefix": "basicGrid",
     "body": [
-      "function basicGrid(rows, columns = rows) {",
-      "    cw = w / rows",
-      "    ch = h / columns",
-      "    for (let i = 0; i < w; i += cw) {",
-      "      for (let j = 0; j < h; j += ch) {",
-      "        if (i == 0 || j == 0 || i >= cw * rows - cw || j >= ch * columns - ch) {",
-      "          continue",
-      "        } else {",
-      "          ${1:example}",
-      "        }",
+      "function basicGrid(rows, columns = rows, m = -1) {",
+      "  cw = w / rows",
+      "  ch = h / columns",
+      "  for (let i = 0; i < rows; i++) {",
+      "    for (let j = 0; j < columns; j++) {",
+      "      if (i <= m || j <= m || i >= rows - m - 1 || j >= columns - m - 1) {",
+      "        continue",
+      "      } else {",
+      "        push()",
+      "        translate(i * cw, j * ch)",
+      "        ${1:example}",
+      "        pop()",
       "      }",
       "    }",
-      "  }"
+      "  }",
+      "}"
     ],
-    "description": "p5.js Basic Grid function"
+    "description": "Basic Grid"
   }
 }
