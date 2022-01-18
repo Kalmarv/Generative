@@ -6,10 +6,10 @@ function setup() {
   randomSeed(seeed)
   noiseSeed(seeed)
   cols = choose(randcols)
-  maxHeight = px(35)
+  maxHeight = px(25)
   strokeWeight(px(0.2))
   pixelDensity(2)
-  noiseScale = 1
+  noiseScale = 2
 }
 
 function draw() {
@@ -36,9 +36,13 @@ function basicGrid(rows, columns = rows) {
       noiseY = map(j, -columns / 2, columns / 2, 0, 1)
       noiseZ = noise(noiseX * noiseScale, noiseY * noiseScale, frameCount / 500)
       blockHeight = noiseZ * maxHeight
-      heightColor = floor(map(blockHeight, 0, maxHeight, 0, cols.length - 1))
 
-      fill(cols[heightColor])
+      //fill(choose(cols))
+      //fill(map(blockHeight, 0, maxHeight, 0, 255))
+      from = cols[0]
+      to = cols[cols.length - 1]
+      blockColor = lerpColor(color(from), color(to), noiseZ)
+      fill(blockColor)
 
       translate(0, 0, blockHeight / 2)
       box(cw * 0.45, ch * 0.45, blockHeight)
