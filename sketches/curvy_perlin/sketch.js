@@ -1,3 +1,13 @@
+const pane = new Tweakpane.Pane({
+  title: "Parameters",
+  expanded: false,
+})
+
+pane.on("change", (ev) => {
+  clear()
+  redraw()
+})
+
 function setup() {
   let params = getURLParams()
   urlSeed(params)
@@ -6,20 +16,43 @@ function setup() {
   randomSeed(seeed)
   noiseSeed(seeed)
   cols = choose(randcols)
-  //ellipseMode(CORNER)
-  totalRows = 30
-  strokeWeight(px(0.05))
   noLoop()
+
+  p = {
+    totalRows: 30,
+    cirw: 1.5,
+    cirh: 1,
+    rownoise: 2,
+    strokeW: 0.05,
+    cirNoiseX: 5,
+    cirNoiseY: 5,
+  }
+
+  pane.addInput(p, "totalRows", { min: 0, max: 100, label: "Total Rows" })
+  pane.addInput(p, "cirw", { min: 0, max: 10, label: "Circe Width" })
+  pane.addInput(p, "cirh", { min: 0, max: 10, label: "Circle Height" })
+  pane.addInput(p, "rownoise", { min: 0, max: 20, label: "Row Noise Scale" })
+  pane.addInput(p, "strokeW", { min: 0, max: 1, label: "Outline Width" })
+  pane.addInput(p, "cirNoiseX", { min: 0, max: 10, label: "Circle Noise Scale X" })
+  pane.addInput(p, "cirNoiseY", { min: 0, max: 10, label: "Circle Noise Scale Y" })
+
+  const savebtn = pane.addButton({
+    title: "Save Image",
+  })
+
+  savebtn.on("click", () => {
+    save(str(seeed) + ".png")
+  })
 }
 
 function draw() {
-  t = frameCount / 100
+  strokeWeight(px(p.strokeW))
   background(choose(cols))
   randomSeed(seeed)
   noiseSeed(seeed)
-  for (let k = 0; k < totalRows; k++) {
-    ch = w / totalRows
-    circs = floor(noise((k / totalRows) * 2) * floor(w / ch))
+  for (let k = 0; k < p.totalRows; k++) {
+    ch = w / p.totalRows
+    circs = floor(noise((k / p.totalRows) * p.rownoise) * floor(w / ch))
     push()
     translate((w - ch * circs) / 2, k * ch)
     basicGrid(1, circs, ch * circs, ch, k)
@@ -35,14 +68,15 @@ function basicGrid(rows, columns, maxWidth = w, maxHeight = h, lineNum) {
       push()
 
       fill(choose(cols))
-      noiseScale = totalRows / 5
+      noiseScaleX = p.totalRows / p.cirNoiseX
+      noiseScaleY = p.totalRows / p.cirNoiseY
 
-      r = map(noise(j / noiseScale, lineNum / noiseScale), 0, 1, -PI, PI)
+      r = map(noise(j / noiseScaleX, lineNum / noiseScaleY), 0, 1, -PI, PI)
       //rotate(r)
 
       translate(j * cw + cw / 2, i * ch + ch / 2)
       rotate(r)
-      ellipse(0, 0, cw * r * 1.5, ch * r)
+      ellipse(0, 0, cw * r * p.cirw, ch * r * p.cirh)
       pop()
     }
   }
