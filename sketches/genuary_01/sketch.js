@@ -95,8 +95,7 @@ function flow2() {
     push()
     fill(choose(p.cols))
     translate((x = random(w)), (y = random(h)))
-    pillsize =
-      norm2(noise(x / px(p.noisex), y / px(p.noisey)), 0, 1) * p.pillscale
+    pillsize = norm2(noise(x / px(p.noisex), y / px(p.noisey)), 0, 1) * p.pillscale
     rotate(noise(x / px(p.rotx), y / px(p.roty)) * p.ramt)
     rect(0, 0, pillw * pillsize, pillh * pillsize, px(p.roundness))
     pop()

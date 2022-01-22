@@ -88,7 +88,13 @@ function choose(arr) {
 // Do nothing for ternary operators
 function nop() {}
 
-// to reverse a iter, 10-0 becomes 0-10
+/**
+ * Reverses a iter
+ * @param {number} x Input
+ * @param {number} max Highest the number will be
+ * @param {number} min Lowest the number will be (default 0)
+ * @returns
+ */
 function invert(x, max, min = 0) {
   return map(x, min, max, max, min)
 }
@@ -155,7 +161,17 @@ function probf(p, dofx, elsefx = null) {
   return null
 }
 
-// Makes a bumpy line
+/**
+ * Creates a bumpy line from (x1,y1) to (x2,y2)
+ * @param {number} x1 Starting X
+ * @param {number} y1 Starting Y
+ * @param {number} x2 Ending X
+ * @param {number} y2 Ending Y
+ * @param {number} points Number of points in line
+ * @param {number} noiseScale Number the index is multiplied by to smooth the noise
+ * @param {number} bumpHeight Maximum height the points will travel from the line (perpendicular)
+ * @param {number} offset Offset value for noise, so lines are not identical
+ */
 function lineVertex(x1, y1, x2, y2, points, noiseScale, bumpHeight, offset) {
   dx = x2 - x1
   dy = y2 - y1
@@ -171,7 +187,10 @@ function lineVertex(x1, y1, x2, y2, points, noiseScale, bumpHeight, offset) {
   endShape()
 }
 
-// LEGACY CODEBASE
+/**
+ * Normalizes 0 - 1 to -1 to 1
+ * @param {number} x
+ */
 function expand(x) {
   return (x - 0.5) * 2
 }
