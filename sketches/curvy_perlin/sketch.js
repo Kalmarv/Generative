@@ -15,7 +15,6 @@ function setup() {
   ARCanvas(1, 1)
   randomSeed(seeed)
   noiseSeed(seeed)
-  cols = choose(randcols)
   noLoop()
 
   p = {
@@ -26,6 +25,8 @@ function setup() {
     strokeW: 0.05,
     cirNoiseX: 5,
     cirNoiseY: 5,
+    extraRows: 0,
+    cols: choose(randcols),
   }
 
   pane.addInput(p, "totalRows", { min: 0, max: 100, label: "Total Rows" })
@@ -35,6 +36,7 @@ function setup() {
   pane.addInput(p, "strokeW", { min: 0, max: 1, label: "Outline Width" })
   pane.addInput(p, "cirNoiseX", { min: 0, max: 10, label: "Circle Noise Scale X" })
   pane.addInput(p, "cirNoiseY", { min: 0, max: 10, label: "Circle Noise Scale Y" })
+  pane.addInput(p, "extraRows", { min: -50, max: 50, step: 1, label: "Extra Rows" })
 
   const savebtn = pane.addButton({
     title: "Save Image",
@@ -47,12 +49,12 @@ function setup() {
 
 function draw() {
   strokeWeight(px(p.strokeW))
-  background(choose(cols))
+  background(choose(p.cols))
   randomSeed(seeed)
   noiseSeed(seeed)
   for (let k = 0; k < p.totalRows; k++) {
     ch = w / p.totalRows
-    circs = floor(noise((k / p.totalRows) * p.rownoise) * floor(w / ch))
+    circs = floor(noise((k / p.totalRows) * p.rownoise) * floor(w / ch)) + p.extraRows
     push()
     translate((w - ch * circs) / 2, k * ch)
     basicGrid(1, circs, ch * circs, ch, k)
@@ -67,7 +69,7 @@ function basicGrid(rows, columns, maxWidth = w, maxHeight = h, lineNum) {
     for (let i = 0; i < rows; i++) {
       push()
 
-      fill(choose(cols))
+      fill(choose(p.cols))
       noiseScaleX = p.totalRows / p.cirNoiseX
       noiseScaleY = p.totalRows / p.cirNoiseY
 
