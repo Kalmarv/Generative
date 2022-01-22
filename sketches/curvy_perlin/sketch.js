@@ -37,7 +37,24 @@ function setup() {
   pane.addInput(p, "cirNoiseX", { min: 0, max: 10, label: "Circle Noise Scale X" })
   pane.addInput(p, "cirNoiseY", { min: 0, max: 10, label: "Circle Noise Scale Y" })
   pane.addInput(p, "extraRows", { min: -50, max: 50, step: 1, label: "Extra Rows" })
+  const randomizebtn = pane.addButton({
+    title: "Randomize",
+  })
 
+  randomizebtn.on("click", () => {
+    p.cols = vChoose(randcols)
+    p.totalRows = vRand(10, 100)
+    p.cirw = vRand(0.1, 5)
+    p.cirh = vRand(0.1, 5)
+    p.rownoise = vRand(0, 20)
+    p.strokeW = vRand(0, 0.1)
+    p.cirNoiseX = vRand(0, 10)
+    p.cirNoiseY = vRand(0, 10)
+    p.extraRows = vRand(0, 20)
+    clear()
+    redraw()
+    pane.refresh()
+  })
   const savebtn = pane.addButton({
     title: "Save Image",
   })

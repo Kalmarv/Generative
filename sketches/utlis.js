@@ -85,6 +85,10 @@ function choose(arr) {
   return arr[floor(random(arr.length))]
 }
 
+vChoose = (arr) => arr[floor(vRand(0, arr.length))]
+
+vRand = (min, max) => Math.random() * (max - min) + min
+
 // Do nothing for ternary operators
 function nop() {}
 
