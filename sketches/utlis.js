@@ -124,7 +124,11 @@ function norm2(x, min = 0, max = 1) {
   return map(x, min, max, -1, 1)
 }
 
-// polygon that makes a circle with specified points and scale
+/**
+ * Polygon generator
+ * @param {number} p Points
+ * @param {number} s Scale
+ */
 function ngon(p, s) {
   beginShape()
   for (let i = 0; i < p; i++) {
@@ -135,7 +139,10 @@ function ngon(p, s) {
   endShape(CLOSE)
 }
 
-// for generating random seeds outside p5.js functions
+/**
+ * Random Seed from browser
+ * @returns
+ */
 function cryptoRandom() {
   return window.crypto.getRandomValues(new Uint32Array(1))[0]
 }
@@ -153,7 +160,14 @@ function urlSeed(params) {
   }
 }
 
-// Stolen from https://github.com/inconvergent
+/**
+ * Do function based off probability
+ * Stolen from https://github.com/inconvergent
+ * @param {number} p Probability 0 - 1
+ * @param {number} dofx Function 1 eg () => someFunction()
+ * @param {number} [elsefx=null] Another function or null
+ * @returns
+ */
 function probf(p, dofx, elsefx = null) {
   //execute dofx with a probability of p,
   //or elsefx with a probability of (1-p)
