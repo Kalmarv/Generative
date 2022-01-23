@@ -17,7 +17,6 @@ function setup() {
   noiseSeed(seeed)
   cols = choose(randcols)
   noLoop()
-  strokeWeight(px(0.1))
 
   p = {
     depth: 10,
@@ -27,6 +26,7 @@ function setup() {
     maxRangeX: 0.9,
     minRangeY: 0.1,
     maxRangeY: 0.9,
+    strokeW: 0.1,
   }
 
   pane.addInput(p, "depth", { min: 0, max: 20, step: 1, label: "Recursion Depth" })
@@ -36,9 +36,11 @@ function setup() {
   pane.addInput(p, "maxRangeX", { min: 0, max: 1, label: "Max Range X" })
   pane.addInput(p, "minRangeY", { min: 0, max: 1, label: "Min Range Y" })
   pane.addInput(p, "maxRangeY", { min: 0, max: 1, label: "Max Range Y" })
+  pane.addInput(p, "strokeW", { min: 0, max: 1, label: "StrokeWeight" })
 }
 
 function draw() {
+  strokeWeight(px(p.strokeW))
   randomSeed(seeed)
   noiseSeed(seeed)
   rect(0, 0, w, h)
