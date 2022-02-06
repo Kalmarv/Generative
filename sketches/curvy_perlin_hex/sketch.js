@@ -59,7 +59,10 @@ function setup() {
   pane.addInput(p, "col8", { label: "Color 8" })
   pane.addInput(p, "col9", { label: "Color 9" })
   const randomizebtn = pane.addButton({
-    title: "Randomize",
+    title: "Randomize Layout",
+  })
+  const randomizeColBtn = pane.addButton({
+    title: "Randomize Colors (very ugly)",
   })
 
   randomizebtn.on("click", () => {
@@ -71,6 +74,22 @@ function setup() {
     p.cirNoiseX = vRand(0, 10)
     p.cirNoiseY = vRand(0, 10)
     p.extraRows = vRand(0, 20)
+    clear()
+    redraw()
+    pane.refresh()
+  })
+
+  randomizeColBtn.on("click", () => {
+    p.bg = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col1 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col2 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col3 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col4 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col5 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col6 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col7 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col8 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
+    p.col9 = color(vRand(0, 255), vRand(0, 255), vRand(0, 255)).toString()
     clear()
     redraw()
     pane.refresh()
